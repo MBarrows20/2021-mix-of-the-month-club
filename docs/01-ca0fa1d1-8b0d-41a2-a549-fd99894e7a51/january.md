@@ -1,6 +1,6 @@
 ---
 title: "MotM2021: January"
-month: "January"
+month: "January21"
 permalink: 01-ca0fa1d1-8b0d-41a2-a549-fd99894e7a51/01-january
 ---
 
@@ -17,8 +17,9 @@ Welcome to my Mix of the Month club---2021 edition! Without further ado (because
 ![January Radar Chart](../assets/jan2021-radar.png)
 
 {% for playlist in site.data.playlists %}
-<img href = "../assets/{{playlist.name}}-radar.png"></img>
+<img href = {{playlist.image_loc}}></img>
 {% endfor %}
+
 -----
 
 #### Club Deets
