@@ -7,17 +7,16 @@ permalink: 01-ca0fa1d1-8b0d-41a2-a549-fd99894e7a51/01-january
 Welcome to my Mix of the Month club---2021 edition! Without further ado (because the month is nearly out), here is...
 
 ## January's Mix
+{% for playlist in site.data.playlists %}
+    {% if playlist.name == page.month %}
 
-<iframe src="https://open.spotify.com/embed/playlist/2iFlt7F1azJXxclou9ze0M" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="https://open.spotify.com/embed/playlist/{{playlist.playlistID}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-[_[direct link to this same playlist on Spotify]_](https://open.spotify.com/playlist/2iFlt7F1azJXxclou9ze0M?si=GpSW_X-NRZG97Jx_NCPm3Q)
+[_[direct link to this same playlist on Spotify]_](https://open.spotify.com/playlist/{{playlist.playlistID}}?si=GpSW_X-NRZG97Jx_NCPm3Q)
 
 #### Playlist Characteristics
 
-![January Radar Chart](../assets/January21-radar.png)
 
-{% for playlist in site.data.playlists %}
-    {% if playlist.name == page.month %}
 ![{{playlist.name}} Radar Chart]({{playlist.image_loc}})
     {% endif %}
 {% endfor %}
