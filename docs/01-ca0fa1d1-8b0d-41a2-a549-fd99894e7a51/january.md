@@ -17,11 +17,9 @@ Welcome to my Mix of the Month club---2021 edition! Without further ado (because
 ![January Radar Chart](../assets/January21-radar.png)
 
 {% for playlist in site.data.playlists %}
-![January Radar Chart]({{playlist.image_loc}})
-{% endfor %}
-
-{% for playlist in site.data.playlists %}
-<img href = {{playlist.image_loc}}></img>
+    {% if playlist.name = page.month %}
+        ![{{playlist.name}} Radar Chart]({{playlist.image_loc}})
+    {% endif %}
 {% endfor %}
 
 -----
