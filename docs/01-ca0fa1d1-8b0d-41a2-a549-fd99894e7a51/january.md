@@ -18,7 +18,7 @@ Welcome to my Mix of the Month club---2021 edition! Without further ado (because
 
 {% for playlist in site.data.playlists %}
     {% if playlist.name == page.month %}
-        ![{{playlist.name}} Radar Chart]({{playlist.image_loc}})
+![{{playlist.name}} Radar Chart]({{playlist.image_loc}})
     {% endif %}
 {% endfor %}
 
