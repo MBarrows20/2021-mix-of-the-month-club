@@ -1,5 +1,5 @@
 
-## {{month}}'s Mix
+## {{page.month}}'s Mix
 {% for playlist in site.data.playlists %}
 {% if playlist.month == page.month and playlist.year == page.year %}
 
