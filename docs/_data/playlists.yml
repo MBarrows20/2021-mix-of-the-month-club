@@ -1,7 +1,9 @@
-- name: January21
+- month: January
+  year: 2021
   image_loc: ../assets/January21-radar.png
   playlistID: 2iFlt7F1azJXxclou9ze0M
 
-- name: February21
+- month: February
+  year: 2021
   image_loc: ../assets/February21-radar.png
   playlistID: 59LsqWanRpkaFGmTxlx6jE
