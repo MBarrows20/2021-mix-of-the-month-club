@@ -7,7 +7,7 @@
 
 [_[direct link to this same playlist on Spotify]_](https://open.spotify.com/playlist/{{playlist.playlistID}}?si=GpSW_X-NRZG97Jx_NCPm3Q)
 
-{% if playlist.image_loc != null }
+{% if playlist.image_loc %}
 #### Playlist Characteristics
 
 
