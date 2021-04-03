@@ -1,4 +1,3 @@
-import config
 import yaml
 import requests
 import pandas as pd
