@@ -26,6 +26,10 @@ jobs:
           conda install pyyaml
           conda install pandas
           conda install requests
+          conda info
+          conda list
+          conda config --show-sources
+          conda config --show
       - name: Run script
         run: python GetPlaylistRadarPlot.py --push
         env:
