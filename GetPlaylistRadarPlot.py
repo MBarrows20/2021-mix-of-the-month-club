@@ -1,4 +1,5 @@
 import os
+import pathlib
 import yaml
 import requests
 import pandas as pd
@@ -10,7 +11,7 @@ CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
 CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET") 
 BASE_URL = 'https://api.spotify.com/v1/'
 
-with open(r'docs\_data\playlists.yml') as file: 
+with open(pathlib.Path(__file__).parent / 'docs/_data/playlists.yml') as file: 
     PLAYLIST_IDS = yaml.load(file, Loader=yaml.FullLoader)
 
 # Authentication 
