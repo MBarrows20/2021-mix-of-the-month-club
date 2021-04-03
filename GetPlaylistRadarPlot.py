@@ -61,4 +61,4 @@ for playlist in PLAYLIST_IDS:
     #Save radar visual of playlist characteristics
     fig = px.line_polar(df_mean, r='Value',theta='Characteristic', line_close=True)
     fig.update_traces(fill='toself')
-    fig.write_image("./docs/assets/radarCharts/"+playlist['month']+playlist['year']+'-radar.png')
+    fig.write_image("./docs/assets/radarCharts/"+playlist['month']+'-radar.png')
