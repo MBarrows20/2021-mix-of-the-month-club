@@ -165,7 +165,6 @@ scikit-learn==0.23.2
 scipy==1.5.2
 seaborn==0.11.0
 Send2Trash==1.5.0
-setuptools==50.3.1.post20201107
 simplegeneric==0.8.1
 singledispatch==3.4.0.3
 six==1.15.0
