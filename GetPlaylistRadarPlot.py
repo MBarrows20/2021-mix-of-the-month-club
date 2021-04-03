@@ -11,9 +11,13 @@ CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
 CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET") 
 BASE_URL = 'https://api.spotify.com/v1/'
 
-with open(pathlib.Path(__file__).parent / 'docs/_data/playlists.yml') as file: 
+with open(pathlib.Path(__file__).parent / 'docs/_data/playlists.yml') as file: # per https://github.com/Azure/azure-functions-python-worker/issues/340#issuecomment-627443490
     PLAYLIST_IDS = yaml.load(file, Loader=yaml.FullLoader)
 
+if not CLIENT_ID:
+    print("client id is empty")
+if not CLIENT_SECRET:
+    print("client secret is empty")
 # Authentication 
 auth_response = requests.post(AUTH_URL, {
     'grant_type': 'client_credentials',
