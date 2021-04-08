@@ -1,3 +1,4 @@
+import config
 import os
 import pathlib
 import yaml
@@ -8,9 +9,10 @@ import matplotlib.pyplot as plt
 
 # Get Playlist Item Ids
 AUTH_URL = 'https://accounts.spotify.com/api/token'
-CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID") 
-CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET") 
-
+# CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID") 
+# CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET") 
+CLIENT_ID = config.CLIENT_ID
+CLIENT_SECRET = config.CLIENT_SECRET
 BASE_URL = 'https://api.spotify.com/v1/'
 
 with open(pathlib.Path(__file__).parent / 'docs/_data/playlists.yml') as file: # per https://github.com/Azure/azure-functions-python-worker/issues/340#issuecomment-627443490
@@ -74,5 +76,5 @@ for playlist in PLAYLIST_IDS:
     ax.plot(angles,values)
     ax.fill(angles, values, 'purple', alpha=0.5)
     ax.set_yticks([])
-    plt.savefig("./docs/assets/radarCharts/"+playlist['month']+playlist['year']+'-radar.png')
+    plt.savefig("./docs"+playlist['image_loc'])
     ax.clear()
