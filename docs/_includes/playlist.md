@@ -1,6 +1,6 @@
 
 ## {{page.month}}'s Mix
-{% for playlist in site.data.playlists %}
+{% for playlist in site.data.playlists.playlists %}
 {% if playlist.month == page.month and playlist.year == page.year %}
 
 <iframe src="https://open.spotify.com/embed/playlist/{{playlist.playlistID}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>

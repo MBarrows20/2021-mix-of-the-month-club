@@ -15,7 +15,7 @@ CLIENT_ID = config.CLIENT_ID
 CLIENT_SECRET = config.CLIENT_SECRET
 BASE_URL = 'https://api.spotify.com/v1/'
 
-with open(pathlib.Path(__file__).parent / 'docs/_data/playlists.yml') as file: # per https://github.com/Azure/azure-functions-python-worker/issues/340#issuecomment-627443490
+with open(pathlib.Path(__file__).parent.parent / '_data/playlists.yml') as file: # per https://github.com/Azure/azure-functions-python-worker/issues/340#issuecomment-627443490
     PLAYLIST_IDS = yaml.load(file, Loader=yaml.FullLoader)
 
 if not CLIENT_ID:
