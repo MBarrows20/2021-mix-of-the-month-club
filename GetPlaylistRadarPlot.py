@@ -74,5 +74,5 @@ for playlist in PLAYLIST_IDS:
     ax.plot(angles,values)
     ax.fill(angles, values, 'purple', alpha=0.5)
     ax.set_yticks([])
-    plt.savefig(playlist['image_loc'])
+    plt.savefig("./docs"+playlist['image_loc'])
     ax.clear()
