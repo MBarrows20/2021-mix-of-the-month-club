@@ -14,15 +14,21 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
+      - uses: conda-incubator/setup-miniconda@v2
+        with: 
+          auto-update-conda: true
+          activate-environment: python3_7client
           python-version: 3.7
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          conda init bash
+          source ~/.bashrc
+          conda install pip
+          conda install -c plotly plotly-orca
+          conda install pyyaml
+          conda install pandas
+          conda install requests
+          conda activate python3_7client
       - name: Run script
         run: python GetPlaylistRadarPlot.py --push
         env:
