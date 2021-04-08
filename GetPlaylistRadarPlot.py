@@ -3,12 +3,14 @@ import pathlib
 import yaml
 import requests
 import pandas as pd
-import plotly.express as px
+from math import pi
+import matplotlib.pyplot as plt
 
 # Get Playlist Item Ids
 AUTH_URL = 'https://accounts.spotify.com/api/token'
 CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID") 
 CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET") 
+
 BASE_URL = 'https://api.spotify.com/v1/'
 
 with open(pathlib.Path(__file__).parent / 'docs/_data/playlists.yml') as file: # per https://github.com/Azure/azure-functions-python-worker/issues/340#issuecomment-627443490
@@ -38,7 +40,6 @@ playlistParams = {
     'fields': 'items(track(id))'
 }
 for playlist in PLAYLIST_IDS:
-
     r = requests.get(BASE_URL + 'playlists/'+ playlist['playlistID'] + '/tracks', headers = headers, params=playlistParams).json()
     track_ids = [x['track']['id'] for x in r['items']]
 
@@ -58,7 +59,20 @@ for playlist in PLAYLIST_IDS:
     df_mean.reset_index(inplace=True)
     df_mean = df_mean.rename(columns = {0:'Value'})
 
-    #Save radar visual of playlist characteristics
-    fig = px.line_polar(df_mean, r='Value',theta='Characteristic', line_close=True)
-    fig.update_traces(fill='toself')
-    fig.write_image("./docs/assets/radarCharts/"+playlist['month']+'-radar.png')
+    #Create variables for plotting
+    Attributes = df_mean['Characteristic']
+    AttNo = len(df_mean['Characteristic'])
+    values = list(df_mean['Value'])
+    values += values[:1] #Close loop by adding first characteristic value again
+
+    angles = [n / float(AttNo) * 2 * pi for n in range(AttNo)]
+    angles += angles [:1]
+
+    #Plot and save radar chart
+    ax = plt.subplot(111, polar=True)
+    plt.xticks(angles[:-1],Attributes)
+    ax.plot(angles,values)
+    ax.fill(angles, values, 'purple', alpha=0.5)
+    ax.set_yticks([])
+    plt.savefig("./docs/assets/radarCharts/"+playlist['month']+playlist['year']+'-radar.png')
+    ax.clear()
