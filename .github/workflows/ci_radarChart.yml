@@ -26,9 +26,7 @@ jobs:
         env:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
-      - name: Commit changes
-        run: |
-          git config --global user.name 'GitHubActions_CICD'
-          git config --global user.email 'michael.barrows.a@gmail.com'
-          git commit -am "CICD - Radar Charts"
-          git push
+      - name: auto commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Radar charts
