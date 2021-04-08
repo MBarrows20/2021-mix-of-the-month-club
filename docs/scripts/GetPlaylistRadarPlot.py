@@ -1,4 +1,3 @@
-import config
 import os
 import pathlib
 import yaml
@@ -9,13 +8,11 @@ import matplotlib.pyplot as plt
 
 # Get Playlist Item Ids
 AUTH_URL = 'https://accounts.spotify.com/api/token'
-# CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID") 
-# CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET") 
-CLIENT_ID = config.CLIENT_ID
-CLIENT_SECRET = config.CLIENT_SECRET
+CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID") 
+CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET") 
 BASE_URL = 'https://api.spotify.com/v1/'
 
-with open(pathlib.Path(__file__).parent / 'docs/_data/playlists.yml') as file: # per https://github.com/Azure/azure-functions-python-worker/issues/340#issuecomment-627443490
+with open(pathlib.Path(__file__).parent.parent / '_data/playlists.yml') as file: # per https://github.com/Azure/azure-functions-python-worker/issues/340#issuecomment-627443490
     PLAYLIST_IDS = yaml.load(file, Loader=yaml.FullLoader)
 
 if not CLIENT_ID:
