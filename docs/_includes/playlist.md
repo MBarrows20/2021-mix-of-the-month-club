@@ -11,7 +11,7 @@
 #### Playlist Characteristics
 
 
-![{{playlist.month}}-{{playlist.year}} Radar Chart](..{{playlist.image_loc}})
+![{{playlist.month}}-{{playlist.year}} Radar Chart]({{playlist.image_loc}})
 {% endif %}
 {% endif %}
 {% endfor %}
